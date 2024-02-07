@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Button from 'react-bootstrap/Button';
+import { Route, Routes } from 'react-router';
+import  DashBoard  from './components/dashboard/DashBoard';
+import  postUser  from './components/postUser/postUser';
+import  noMatch  from './components/noMatch/noMatch';
+import  Header  from './components/header/Header';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header></Header>
+      <Routes>
+        <Route path='/' element={<DashBoard/>}></Route>
+        <Route path='/user' element={<postUser/>}></Route>
+        <Route path='/user/:id' element={<updateUser/>}></Route>
+        <Route path='/' element={<noMatch/>}></Route>
+      </Routes>
+    </>
   );
 }
 
